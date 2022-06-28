@@ -1,6 +1,47 @@
-const mongoose = require("mongoose");
+const { Schema, model } = require("mongoose");
 
-const Thought = mongoose.model("Thought", thoughtSchema);
+// Schema to create Post model
+const thoughtSchema = new Schema(
+  {
+    username: {
+      type: String,
+    },
+    thoughtText: {
+      type: String,
+      minLength: 15,
+      maxLength: 500,
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+    },
+    reaction: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "reaction",
+      },
+    ],
+  },
+  {
+    toJSON: {
+      virtuals: true,
+    },
+    id: false,
+  }
+);
+
+// Create a virtual property `tagCount` that gets the amount of comments per user
+thoughtSchema
+  .virtual("reactionCount")
+  // Getter
+  .get(function () {
+    return this.reaction.length;
+  });
+
+// Initialize our Post model
+const Thought = model("thought", thoughtSchema);
+
+module.exports = Thought;
 
 // const thoughtSchema = new mongoose.Schema({
 //   name: { type: String, required: true },
@@ -11,29 +52,20 @@ const Thought = mongoose.model("Thought", thoughtSchema);
 //   lastAccessed: { type: Date, default: Date.now },
 // });
 
-Thought.create(
-  {
-    thoughtText: "",
-    createdAt: "",
-    username: "",
-    reactions: user_id,
-    //reactionId, reactionBody, username, createdAt
-  },
-  (err, data) => {
-    if (err) {
-      console.error(err);
-    }
-    console.log(data);
-  }
-);
+// Thought.create(
+//   {
+//     thoughtText: "",
+//     createdAt: "",
+//     username: "",
+//     reactions: user_id,
+//     //reactionId, reactionBody, username, createdAt
+//   },
+//   (err, data) => {
+//     if (err) {
+//       console.error(err);
+//     }
+//     console.log(data);
+//   }
+// );
 
-const reaction = new Thought({
-  reactionId: "",
-  reactionBody: "",
-  username: "",
-  createdAt: "",
-});
-
-reaction.getDocumentInfo();
-
-module.exports = Thought;
+// module.exports = Thought;
