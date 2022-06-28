@@ -2,6 +2,15 @@ const mongoose = require("mongoose");
 
 const Thought = mongoose.model("Thought", thoughtSchema);
 
+// const thoughtSchema = new mongoose.Schema({
+//   name: { type: String, required: true },
+//   thoughtText: String,
+//   createdAt: { type: Date, default: Date.now },
+//   username: String,
+//   reactions:
+//   lastAccessed: { type: Date, default: Date.now },
+// });
+
 Thought.create(
   {
     thoughtText: "",
