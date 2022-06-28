@@ -1,8 +1,5 @@
 const mongoose = require("mongoose");
-const thoughtSchema = require('./Thought');
-
-const User = mongoose.model("User", userSchema);
-
+const thoughtSchema = require("./Thought");
 
 const { Schema, model } = require("mongoose");
 
@@ -30,6 +27,7 @@ const userSchema = new Schema(
         type: Schema.Types.ObjectId,
         ref: "user",
       },
+    ],
   },
   {
     toJSON: {
@@ -39,9 +37,9 @@ const userSchema = new Schema(
   }
 );
 
+const User = mongoose.model("User", userSchema);
 
 module.exports = User;
-
 
 // const userSchema = new mongoose.Schema({
 //   username: { type: String, required: true },

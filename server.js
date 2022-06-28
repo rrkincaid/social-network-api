@@ -1,5 +1,5 @@
 const express = require("express");
-const db = require("./config/connection");
+const db = require("./config/config");
 const routes = require("./routes");
 
 // Require model

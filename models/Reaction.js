@@ -5,9 +5,12 @@ const reactionSchema = new Schema({
     type: String,
     required: true,
   },
-  createdAt: Date,
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
   toJSON: {
-    virtuals: true,
+    // virtuals: true,
   },
 });
 
