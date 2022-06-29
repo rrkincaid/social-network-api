@@ -1,4 +1,4 @@
-const { Reaction, Thought } = require("../models");
+const { Reaction, Thought, User } = require("../models");
 
 module.exports = {
   getReaction(req, res) {
