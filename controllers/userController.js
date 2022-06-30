@@ -35,4 +35,22 @@ module.exports = {
         res.status(500).json(err);
       });
   },
+  addFriend(req, res) {
+    return User.findOneAndUpdate(
+      { _id: req.params.userId },
+      { $addToSet: { friend: req.body.friendId } },
+      { new: true, runValidators: true }
+    ).then((data) => {
+      res.json(data);
+    });
+  },
+  removeFriend(req, res) {
+    return User.findOneAndDelete(
+      { _id: req.params.userId },
+      { $pull: { friend: req.params.friendId } },
+      { new: true, runValidators: true }
+    ).then((data) => {
+      res.json(data);
+    });
+  },
 };
