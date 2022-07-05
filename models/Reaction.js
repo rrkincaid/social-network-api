@@ -14,13 +14,4 @@ const reactionSchema = new Schema({
   },
 });
 
-// const Reaction = model("reaction", reactionSchema);
-
 module.exports = reactionSchema;
-
-// const reaction = new Thought({
-//   reactionId: "",
-//   reactionBody: "",
-//   username: "",
-//   createdAt: "",
-// });

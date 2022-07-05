@@ -27,7 +27,7 @@ module.exports = {
       )
       .catch((err) => res.status(500).json(err));
   },
-  udpateThought(req, res) {
+  updateThought(req, res) {
     Thought.findOneAndUpdate({ _id: req.params.thoughtId })
       .then((thought) =>
         !thought

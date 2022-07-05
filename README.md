@@ -6,7 +6,6 @@ Module 18 HW | NoSQL: Social Network API
 ✩ [User Story](#user-story)
 ✩ [Acceptance Criteria](#acceptance-criteria)
 ✩ [Github Repository](#github-repository)
-✩ [Gitignore](#gitignore-details)
 ✩ [Mock Up](#mock-up)
 ✩ [Models](#models)
 ✩ [API Routes](#api-routes)
@@ -42,13 +41,12 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 
 ## Github Repository
 
-https://github.com/rrkincaid/social-network-api
-
-## Gitignore
+https://github.com/rrkincaid/social-network-api &&
+https://rrkincaid.github.io/social-network-api/
 
 ## Mock Up
 
-Walk Through Video Link:
+Walk Through Video Link: https://drive.google.com/file/d/18uCsRBgK_7YKfQ-B4ghngifktoWTLHu9/view
 
 ### Models
 
